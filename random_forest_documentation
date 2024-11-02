@@ -1,0 +1,56 @@
+
+
+### **Random Forest Nədir?**
+
+Random Forest, bir neçə qərar ağacını birləşdirərək proqnozlar edən bir toplu öyrənmə metodudur. Tək bir qərar ağacına etibar etmək əvəzinə, ki bu, təlim məlumatlarını overfitting edə bilər, Random Forest bir "meşə" yaradır və nəticələri ortalama (reqressiya üçün) və ya çoxluğun səsi (təsnifat üçün) ilə proqnozlar edir.
+
+
+1. Decision Tree
+   - **Decision Tree:** A flowchart-like structure where internal nodes represent decisions based on feature values, branches represent the outcome of those decisions, and leaf nodes represent the final prediction or decision.
+   - **Overfitting:** Qərar ağacları təlim məlumatlarına asanlıqla overfitting edə bilər, bu da səssizliyi və detallarını qarşılamadığından real məlumatlara yaxşıca uyğun gəlmir.
+
+2. Ensemble Learning:
+   - **Ensemble Methods:** Bir neçə modelin proqnozlarını birləşdirən metodlar. Random Forest, bir bagging (bootstrap aggregating) toplu metodudur.
+
+3. **Bagging:**
+   - **Bootstrap Aggregating (Bagging):** Bir neçə modeli müxtəlif təlim məlumatları altqruplarında öyrətmək. Hər bir altqrup əsas məlumatlardan təsadüfi seçmə ilə yaradılır.
+   - **Təsadüfi Altqruplar:** Random Forest-də hər bir qərar ağacı təlim məlumatlarının fərqli bootstrap nümunələri üzərində öyrədilir. Bu, ağaclar arasında müxtəliflik gətirir.
+
+4. **Xüsusiyyətlərin Təsadüfi Seçilməsi:**
+   - **Təsadüfi Xüsusiyyət Seçimi:** Ağacların düyünlərində bölünmələri müəyyən etmək üçün yalnız təsadüfi seçilmiş xüsusiyyətlər altqrupundan istifadə olunur. Bu, ağaclar arasındakı əlaqəni azaldır və modelin möhkəmliyini artırır.
+
+### **Random Forest Necə İşləyir**
+
+1. **Təlim:**
+   - **Məlumat Nümunəsi:** Əsas təlim məlumatlarından bir neçə bootstrap nümunəsi yaradılır.
+   - **Ağacların Qurulması:** Hər bootstrap nümunəsi üçün bir qərar ağacı qurulur. Hər düyündə təsadüfi seçilmiş xüsusiyyətlər altqrupundan ən yaxşı bölünmə müəyyən edilir.
+   - **Ağacların Artımı:** Düyünləri bölməyə davam edir, bir dayandırma kriteriyasına (məsələn, maksimum dərinlik, düyünlərdə minimum nümunə sayı) çatana qədər.
+
+2. **Proqnoz:**
+   - **Təsnifat:** Meşədəki hər bir ağac bir sinif etiketi üçün səs verir. Bütün ağaclar arasında çoxluğun səsi final proqnozu müəyyən edir.
+   - **Reqressiya:** Proqnoz, bütün ağacların etdiyi proqnozların ortalamasıdır.
+
+### **Üstünlükləri**
+
+1. **Möhkəmlik:** Random Forest, tək bir qərar ağacına nisbətən overfitting-ə daha az meyllidir, çünki bir neçə ağacı ortalama edir, bu da daha yaxşı ümumiləşdirilməyə kömək edir.
+2. **Xüsusiyyətlərin Önəmi:** Proqnozların dəqiqliyini artıran xüsusiyyətlərin hansıların daha vacib olduğunu müəyyən etməyə kömək edir.
+3. **İtirilmiş Məlumatlarla İşləmə:** Random Forest, itirilmiş məlumatları idarə edə bilər və əhəmiyyətli dərəcədə məlumat itirilməsi olsa belə dəqiqliyi qoruyur.
+
+### **Çatışmazlıqları**
+
+1. **Komplekslik:** Random Forest modelləri, bir tək qərar ağacı ilə müqayisədə daha mürəkkəb və başa düşülməsi çətin ola bilər.
+2. **Hesablama Gücü:** Çox sayda ağaclarla təlim və proqnoz vermək hesablama baxımından tələbkar ola bilər, xüsusən böyük məlumat dəstləri ilə.
+
+### **Ümumi Parametrlər**
+
+n_estimators: The number of trees in the forest.
+max_depth: The maximum depth of each tree.
+min_samples_split: The minimum number of samples required to split an internal node.
+min_samples_leaf: The minimum number of samples required to be at a leaf node.
+max_features: The number of features to consider when looking for the best split.
+
+### **Tətbiqləri**
+
+- **Təsnifat Tapşırıqları:** Məsələn, şəkil təsnifatı, spam aşkarlama və tibbi diaqnoz.
+- **Reqressiya Tapşırıqları:** Məsələn, ev qiymətləri və ya səhmlərin qiymətləri kimi rəqəmsal dəyərləri proqnozlaşdırma.
+
